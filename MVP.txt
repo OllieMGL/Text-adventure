@@ -1,0 +1,13 @@
+Simpler than zork, medival skyrim esque game 
+
+1.type help to get a list of commands
+
+2.Add basic comabat - turn based e.g enemy is attacking block or attack
+
+3. Be able to pick things up and access them
+
+4. command list - verb list
+
+5.health bar
+
+6.multiple locations
