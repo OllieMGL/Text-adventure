@@ -2,8 +2,18 @@ import time
 from location import Location
 from descriptions import descriptions
 
+#location = description, inventory, directions )
+hut = Location(descriptions["hut"], None)
+riften = Location(descriptions["riften"], None)
+riften_swamp = Location(descriptions["riften_swamp"], None)
+secret_cave = Location(descriptions["secret_cave"], None)
 
-hut = Location(descriptions["hut"], "hay", "bye")
+hut.setDirections({"outside": riften_swamp}) 
+riften_swamp.setDirections({"inside": hut, "riften": riften, "cave": secret_cave})
+riften.setDirections({"swamp": riften_swamp})
+secret_cave.setDirections({"outside": riften_swamp})
+
+
 
 
 # global variables
@@ -21,12 +31,8 @@ def handleUserInput(user_input):
         look(words)
     elif verb == "go":
         go(words)
-    elif verb== "teleport":
-        #Testing purpose teleport to new location
-        spaceship = Location(descriptions["spaceship"],"test","test")
-        global current_location 
-        current_location = spaceship
-        print("YOu teleported!")
+    elif verb == "directions":
+        getDirections()
     else:
         print("I did not understand that")
         
@@ -41,12 +47,16 @@ def look(words):
      print(current_location.description)
         
 def go(words):
-     print()        
+    direction = words[1]
+    global current_location
+    current_location = current_location.directions[direction]
+
     
-    
+def getDirections():
+    print(list(current_location.directions.keys()))
 
 
 print("Welcome to Skyrim but easy...")
 
-while True: 
+while True:
     handleUserInput(input(">>> "))
