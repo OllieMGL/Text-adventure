@@ -1,8 +1,8 @@
 inventory = {
-    "hut" : ["1x Dagger"],
+    "hut" : ["dagger"],
     
-    "riften" : ["3x Health Pots", "1x Sword", "1x Shield", "1x Fine clothes"],
+    "riften" : ["health pots", "sword", "shield", "fine clothes"],
     
-    "cave" : ["23x Gold", "2x Ruby", "1x Spell Book"]
+    "cave" : ["gold", "ruby", "spell book"]
     
 }

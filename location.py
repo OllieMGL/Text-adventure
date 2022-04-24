@@ -5,3 +5,4 @@ class Location:
     
     def setDirections(self, directions):
         self.directions = directions
+        
