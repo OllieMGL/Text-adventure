@@ -1,8 +1,19 @@
 class Location:
-    def __init__(self,description, inventory):
+    #ATTRIBUTES
+    #description - Str
+    #inventory - list
+    #directions - dict
+    #enemies - list
+    
+    def __init__(self,
+                 description: 'String', 
+                 inventory: 'list', 
+                 enemies: 'list' = None):
         self.description = description
         self.inventory = inventory
+        self.enemies = enemies    
     
-    def setDirections(self, directions):
+    #Set the directions attribute of the object
+    def setDirections(self, directions: 'dict'):
         self.directions = directions
         
