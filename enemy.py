@@ -14,3 +14,5 @@ class Enemy:
     def toString(self):
         print(f"- {self.name}, {self.health} health")
         
+    def takeDamage(self, amount):
+        self.health = self.health - amount

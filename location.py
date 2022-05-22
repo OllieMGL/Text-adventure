@@ -7,8 +7,8 @@ class Location:
     
     def __init__(self,
                  description: 'String', 
-                 inventory: 'list', 
-                 enemies: 'list' = None):
+                 inventory: 'list' = [], 
+                 enemies: 'list' = []):
         self.description = description
         self.inventory = inventory
         self.enemies = enemies    

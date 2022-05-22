@@ -6,9 +6,10 @@ from player import Player
 from enemy import Enemy
 
 # init locations
-hut = Location(descriptions["hut"], inventory["hut"])
+hut = Location(descriptions["hut"], inventory["hut"], 
+               enemies=[Enemy("Draugr", 20, 8), Enemy("Skeever", 5, 2),Enemy("Draugr", 30, 8)])
 riften = Location(descriptions["riften"], inventory["riften"])
-riften_swamp = Location(descriptions["riften_swamp"], None)
+riften_swamp = Location(descriptions["riften_swamp"])
 secret_cave = Location(
     inventory=inventory["cave"],
     description=descriptions["secret_cave"], 
@@ -45,6 +46,8 @@ def handleUserInput(user_input):
         print(player.inventory)
     elif verb == "drop":
         player.dropItem(words[1].lower())
+    elif verb == "die":
+        die()
     else:
         print("I did not understand that")
         
@@ -56,11 +59,29 @@ def grab(words):
     else:
         print("No item in area")
                          
-        
+def die():
+    player.health = 0
         
         
 def attack(words):
-    print("doin a attack")
+    if len(words) < 2:
+        print("attack what bro")
+        return
+    
+    target = None
+    #checking if enemy is there
+    for enemy in player.current_location.enemies:
+        if enemy.name.lower() == words[1].lower():
+            target = enemy
+            break      
+    if target != None:
+        target.takeDamage(10)
+        if target.health <= 0:
+            player.current_location.enemies.remove(target)
+    
+    else: 
+        print(f"No enemy named {words[1]}")
+        print("You flung the air with style and destroyed the air particles.")
     
 def heal(words):
     print("doin a heal")
@@ -71,7 +92,7 @@ def look(words):
     
     #Items
     print("\nItems:")
-    if player.current_location.inventory is not None:
+    if len(player.current_location.inventory) > 0:
         for item in player.current_location.inventory:
             print(f"- {item}")
     else:
@@ -79,7 +100,7 @@ def look(words):
     
     #Enemies
     
-    if player.current_location.enemies is not None:
+    if len(player.current_location.enemies) > 0:
         print("\nEnemies:")
         for enemy in player.current_location.enemies:
             enemy.toString()
