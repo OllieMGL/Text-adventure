@@ -48,6 +48,8 @@ def handleUserInput(user_input):
         player.dropItem(words[1].lower())
     elif verb == "die":
         die()
+    elif verb == "help":
+        helpList()
     else:
         print("I did not understand that")
         
@@ -108,11 +110,27 @@ def look(words):
         
 def go(words):
     direction = words[1]
-    player.current_location = player.current_location.directions[direction]
+    if direction in player.current_location.directions.keys():
+        player.current_location = player.current_location.directions[direction]
+        print(f"\n{player.current_location.description}")
 
+        print("\nItems:")
+        if len(player.current_location.inventory) > 0:
+            for item in player.current_location.inventory:
+                print(f"- {item}")
+        else:
+            print("No items can be seen...")
     
+    else:
+        print("That is not a location you can go to, try these instead:")
+        print(list(player.current_location.directions.keys()))
+            
+       
 def getDirections():
     print(list(player.current_location.directions.keys()))
+    
+def helpList():
+    player.helpFunction()
 
 
 print("Welcome to Skyrim but easy...")
