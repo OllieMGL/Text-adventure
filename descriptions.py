@@ -10,7 +10,15 @@ descriptions = {
     "riften": "A bustling town.",
     
     
-    "secret_cave": "Dark and spooky cave"
-    
+    "secret_cave": "Dark and spooky cave",
+
+
+    "oasis": "Big area with plants",
+
+
+    "church": "Holy place with lots of water ",
+
+
+    "shop": "place where stuff is sold"    
     
 }
