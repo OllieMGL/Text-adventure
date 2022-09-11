@@ -19,6 +19,8 @@ descriptions = {
     "church": "Holy place with lots of water ",
 
 
-    "shop": "place where stuff is sold"    
+    "shop": "place where stuff is sold",
+
+    "church_vault" : "there is a church vault"   
     
 }

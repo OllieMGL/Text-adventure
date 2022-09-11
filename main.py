@@ -20,6 +20,8 @@ oasis = Location(descriptions["oasis"], inventory["oasis"],
 church = Location(descriptions["church"], inventory["church"],
     npcs = [Npc("Priest", 10, None, 5, 6)])
 shop = Location(descriptions["shop"], inventory["shop"])  
+church_vault = Location(descriptions["church_vault"], inventory["church_vault"],
+    enemies = [Enemy("draugr", 20, 8)])
 
 
 
@@ -28,8 +30,9 @@ riften_swamp.setDirections({"inside": hut, "riften": riften, "cave": secret_cave
 riften.setDirections({"swamp": riften_swamp, "church": church, "shop": shop})
 secret_cave.setDirections({"outside": riften_swamp, "inside": oasis})
 oasis.setDirections({"outside": secret_cave, "up": church})
-church.setDirections({"down": oasis, "outside": riften})
+church.setDirections({"down": oasis, "outside": riften,"inside": church_vault })
 shop.setDirections({"outside": riften})
+church_vault.setDirections({"outside" : church})
 
 
 #init player
@@ -70,9 +73,25 @@ def grab(words):
         print(f"{' '.join(words[1:])} taken")
     else:
         print("No item in area")
-                         
+
+
+ # finish off                        
 def die():
     player.health = 0
+    # #if you have a blade:
+    #     time.sleep(1)
+    #     print("You pulled your balde out and held it solemly in your hands...")
+    #     time.sleep(2.5)
+    #     print("You got your knees ready to slice your stomach with the balde meant for others rather than your own...")
+    #     time.sleep(2.9)
+    #     print("You sliced your stomach open, blood rushing from your wound...")
+    #     time.sleep(2.8)
+    #     print("You fall to the ground and perish, but only with one regret...")
+    #     time.sleep(3)
+    #     print("You left the stove on.")
+
+    # else:
+    #     print("You picked up a stone on the ground")    
         
         
 def attack(words):
@@ -123,7 +142,7 @@ def look(words):
                 enemy.toString()
 
         if len(player.current_location.npc) > 0:
-            print("\People in area:")
+            print("People in area:")
             for i in player.current_location.npc:
                 i.toString()
         
@@ -150,4 +169,5 @@ print("Welcome to Skyrim but easy...")
 while player.health > 0:
     handleUserInput(input(">>> "))
 
+time.sleep(3)
 print("You died.dumy")

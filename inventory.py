@@ -11,7 +11,9 @@ inventory = {
 
     "church" : [Potion("holy water", 0, 1, "health"), Item("gold", 1, 50) ],
 
-    "shop" : []  
+    "shop" : [],
+
+    "church_vault" : [Item("gold", 1, 200)]  
 
 
     
