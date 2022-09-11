@@ -8,6 +8,8 @@ import Item
 from NPC import Npc 
 
 
+CAN_ATTACK_ACTIONS = ["attack", "grab", "drop", "heal"]
+
 # init locations
 hut = Location(descriptions["hut"], inventory["hut"], 
                enemies=[Enemy("Draugr", 20, 8), Enemy("Skeever", 5, 2),Enemy("Draugr", 30, 8)])
@@ -62,10 +64,17 @@ def handleUserInput(user_input):
         player.dropItem(words[1].lower())
     elif verb == "die":
         die()
+    elif verb == "health" or verb == "vitals":
+        print(f"Player health is {player.health}")
     elif verb == "help":
         helpList()
     else:
         print("I did not understand that")
+
+    #Now that player has had action, check if any enemies can attack
+    if verb in CAN_ATTACK_ACTIONS:
+        player.current_location.setCanAttack(True)
+
         
 def grab(words):
     if " ".join(words[1:]).lower() in player.current_location.getInventoryLower():
@@ -168,6 +177,10 @@ print("Welcome to Skyrim but easy...")
 
 while player.health > 0:
     handleUserInput(input(">>> "))
+    if player.current_location.can_attack == True:
+        player.current_location.enemiesAttack(player)
+        
+
 
 time.sleep(3)
 print("You died.dumy")

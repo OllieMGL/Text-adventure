@@ -1,0 +1,1 @@
+If I [attack, grab, drop, heal] the enemy gets a chance to attack after the action is completed.

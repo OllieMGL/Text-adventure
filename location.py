@@ -4,6 +4,7 @@ class Location:
     #inventory - list
     #directions - dict
     #enemies - list
+    #can_attack - bool
     
     def __init__(self, description, inventory=[], enemies=[], npcs=[]):
 
@@ -11,6 +12,7 @@ class Location:
         self.inventory = inventory
         self.enemies = enemies
         self.npc = npcs
+        self.can_attack = False
     
     #Set the directions attribute of the object
     def setDirections(self, directions: 'dict'):
@@ -28,3 +30,11 @@ class Location:
                 #I've got the item which name is equal to user input -> item
                 self.inventory.remove(item)
                 return(item)
+
+    def setCanAttack(self, canAttack):
+        self.can_attack = canAttack
+
+    def enemiesAttack(self, player):
+        for enemy in self.enemies:
+            enemy.attack(player)
+        self.setCanAttack(False)

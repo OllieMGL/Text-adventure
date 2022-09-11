@@ -1,9 +1,9 @@
 class Enemy:
     '''
     ATTRIBUTES
+    name -string
     health - int
-    inventory - list
-    directions - dict
+    power - int
     '''
     
     def __init__ (self, name, health, power):
@@ -16,3 +16,7 @@ class Enemy:
         
     def takeDamage(self, amount):
         self.health = self.health - amount
+    
+    def attack(self, player):
+        player.takeDamage(self.power)
+        print(f"{self.name} attacks you for {self.power} damage!")

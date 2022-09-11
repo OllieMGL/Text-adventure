@@ -41,7 +41,11 @@ class Player:
         else:
             print("You have nothing in your inventory")        
 
-
+    # def setHealth(self, new_health):
+    #     self.health = new_health
+    
+    def takeDamage(self, damage):
+        self.health = self.health - damage
 
 
 
