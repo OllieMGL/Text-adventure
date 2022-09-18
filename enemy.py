@@ -15,6 +15,7 @@ class Enemy:
         print(f"- {self.name}, {self.health} health")
         
     def takeDamage(self, amount):
+        print(f"You attacked {self.name} for {amount}")
         self.health = self.health - amount
     
     def attack(self, player):

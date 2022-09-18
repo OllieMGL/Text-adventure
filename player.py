@@ -2,7 +2,7 @@ from Item import *
 
 class Player:
     #health
-    #inventory
+    #inventory (list of Item object)
     #current location
     
     def __init__ (self, health: 'int', inventory: 'list', location: 'Location'):

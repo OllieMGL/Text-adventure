@@ -113,9 +113,25 @@ def attack(words):
     for enemy in player.current_location.enemies:
         if enemy.name.lower() == words[1].lower():
             target = enemy
-            break      
+            break     
+    
+    damage = 2
+    
+    if len(words) > 3 and words[2] == "with":
+        found_weapon = False
+
+        for item in player.inventory:
+            if isinstance(item, Item.Weapon) and item.name.lower() == words[3]:
+                damage = item.damage
+                found_weapon = True
+                break
+
+        if not found_weapon:
+            print(f"You don't have {words[3]}")
+                
+
     if target != None:
-        target.takeDamage(10)
+        target.takeDamage(damage)
         if target.health <= 0:
             player.current_location.enemies.remove(target)
     

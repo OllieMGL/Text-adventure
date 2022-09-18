@@ -1,7 +1,7 @@
 from Item import *
 
 inventory = {
-    "hut" : [Weapon("Dagger", 20, 1, 4 )], 
+    "hut" : [Weapon("RPG", 50, 1, 9999), Weapon("Sword", 50, 1, 9), Weapon("Dagger", 20, 1, 4 )], 
     
     "riften" : [Potion("Health Potion", 50, 2, "health"), Weapon("Sword", 50, 1, 9), Item("Fine Clothes", 40, 1)],
     
