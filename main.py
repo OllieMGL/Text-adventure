@@ -6,15 +6,14 @@ from player import Player
 from enemy import Enemy
 import Item
 from NPC import Npc
-from Item import * 
-
+ 
 
 CAN_ATTACK_ACTIONS = ["attack", "grab", "drop", "heal"]
 
 # init locations
 hut = Location(descriptions["hut"], inventory["hut"], 
-               enemies=[Enemy("Draugr", 20, 8, Item("Draugr Claws", 35, 1)), Enemy("Skeever", 5, 2, Item("Skeever Tail", 10, 1)),
-                Enemy("Draugr", 30, 8, Item("Draugr head", 40, 1))])
+               enemies=[Enemy("Draugr", 20, 8, Item.Item("Draugr Claws", 35, 1)), Enemy("Skeever", 5, 2, Item.Item("Tail", 10, 1)),
+                Enemy("Draugr", 30, 8, Item.Item("Draugr head", 40, 1))])
 riften = Location(descriptions["riften"], inventory["riften"])
 riften_swamp = Location(descriptions["riften_swamp"])
 secret_cave = Location(descriptions["secret_cave"], inventory["cave"],
@@ -137,7 +136,7 @@ def attack(words):
         if target.health <= 0:
             player.current_location.enemies.remove(target)
             player.current_location.inventory.append(target.inventory)
-            print(target.inventory)
+            
             #add enemy inventory to location
             #add enemy droppings to location iventory - you got this 
     
