@@ -6,10 +6,11 @@ class Enemy:
     power - int
     '''
     
-    def __init__ (self, name, health, power):
+    def __init__ (self, name, health, power, inventory):
         self.name = name
         self.health = health
         self.power = power
+        self.inventory = inventory 
         
     def toString(self):
         print(f"- {self.name}, {self.health} health")
