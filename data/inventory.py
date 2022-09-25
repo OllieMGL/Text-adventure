@@ -1,4 +1,4 @@
-from Item import *
+from classes.Item import *
 
 inventory = {
     "hut" : [Weapon("RPG", 50, 1, 9999), Weapon("Sword", 50, 1, 9), Weapon("Dagger", 20, 1, 4 )], 

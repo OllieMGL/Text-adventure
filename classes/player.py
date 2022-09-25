@@ -1,4 +1,4 @@
-from Item import *
+from classes.Item import *
 
 class Player:
     #health
