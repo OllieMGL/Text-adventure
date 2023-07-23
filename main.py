@@ -47,7 +47,7 @@ def handleUserInput(user_input):
         player.current_location.setCanAttack(True)
 
 
-print("Welcome to The Knights of the Square Table...")
+print("Welcome to TBAG...")
 print(player.current_location.description)
 
 while player.health > 0:

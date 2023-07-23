@@ -16,6 +16,7 @@ def grab(player, words):
 def die(player):
     player.health = 0
 
+    # Very dark but I love this idea of different death descriptions if you have certain items
     # #if you have a blade:
     #     time.sleep(1)
     #     print("You pulled your balde out and held it solemly in your hands...")
@@ -102,7 +103,11 @@ def look(player, words):
                 i.toString()
         
 def go(player, words):
-    direction = words[1]
+    second_words = ["in", "to", "up", "down"]
+    if words[1] in second_words and words[2] == "the":
+        direction = words[3]
+    else:
+        direction = words[1]
     if direction in player.current_location.directions.keys():
         player.current_location = player.current_location.directions[direction]
         look(player, words)
