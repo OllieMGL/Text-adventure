@@ -1,26 +1,24 @@
 descriptions = {
-    "hut" : ("You are in a shabby run down hut with three people squrming "+
-    "from a rope which holds them to the ground,A woman sits on a metal storage unit"+
-    "almost as if she was waiting for you to wake up and a small metal dagger lay bby your side"),
+    "hut" : {"name": "Hut", "description":"You are in a hut"},
     
     
-    "riften_swamp": "you are in riften swamp",
+    "riften_swamp": {"name": "Swampy Swamp", "description":"you are in riften swamp"},
     
     
-    "riften": "A bustling town.",
+    "riften": {"name": "Riften", "description":"A bustling town."},
     
     
-    "secret_cave": "Dark and spooky cave",
+    "secret_cave": {"name": "Shh Secret Cave", "description":"Dark and spooky cave"},
 
 
-    "oasis": "Big area with plants",
+    "oasis": {"name": "Blur", "description":"Big area with plants"},
 
 
-    "church": "Holy place with lots of water ",
+    "church": {"name": "Church", "description":"Holy place with lots of water "},
 
 
-    "shop": "place where stuff is sold",
+    "shop": {"name": "Shop", "description":"place where stuff is sold"},
 
-    "church_vault" : "there is a church vault"   
+    "church_vault" : {"name": "Vault inside Church", "description":"there is a church vault" }  
     
 }

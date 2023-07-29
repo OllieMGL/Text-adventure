@@ -6,14 +6,14 @@ import classes.Item as Item
 from classes.NPC import Npc
 
 
-
 def init_locations():
 
 
 #Create location objetcs
 
     hut = Location(
-        description = descriptions["hut"],
+        name = descriptions["hut"]["name"],
+        description = descriptions["hut"]["description"],
         inventory   = inventory["hut"], 
         enemies     =[
             Enemy("Draugr", 20, 8, Item.Item("Draugr Claws", 35, 1)),
@@ -22,15 +22,18 @@ def init_locations():
             ]
         )
     riften = Location(
+        name = descriptions["riften"]["name"],
         description = descriptions["riften"],
         inventory   = inventory["riften"]
         )
 
     riften_swamp = Location(
+        name = descriptions["riften_swamp"]["name"],
         description = descriptions["riften_swamp"]
         )
 
     secret_cave = Location(
+        name = descriptions["secret_cave"]["name"],
         description = descriptions["secret_cave"],
         inventory   = inventory["cave"],
         enemies=[
@@ -40,6 +43,7 @@ def init_locations():
         )
 
     oasis = Location(
+        name = descriptions["oasis"]["name"],
         description = descriptions["oasis"],
         inventory   =  inventory["oasis"],
         enemies     = [
@@ -48,17 +52,20 @@ def init_locations():
         )
 
     church = Location(
+        name = descriptions["church"]["name"],
         description = descriptions["church"],
         inventory   = inventory["church"],
         npcs        = [Npc("Priest", 10, None, 5, 6)]
         )
 
     shop = Location(
+        name = descriptions["shop"]["name"],
         description = descriptions["shop"],
         inventory   = inventory["shop"]
         )
 
     church_vault = Location(
+        name = descriptions["church_vault"]["name"],
         description = descriptions["church_vault"],
         inventory   = inventory["church_vault"],
         enemies     = [

@@ -15,7 +15,7 @@ class Player:
         self.inventory.append(item)
 
     #Remove item from inventory and add back to inventory of current location
-    def dropItem(self, itemName):
+    def dropItem(self, itemName: 'str'):
         for item in self.inventory:
             if itemName == item.name.lower():
                 self.inventory.remove(item)
@@ -44,7 +44,7 @@ class Player:
     # def setHealth(self, new_health):
     #     self.health = new_health
     
-    def takeDamage(self, damage):
+    def takeDamage(self, damage: 'int'):
         self.health = self.health - damage
 
 

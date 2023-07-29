@@ -1,4 +1,5 @@
 import classes.Item as Item
+import time
 
 
 
@@ -17,17 +18,23 @@ def die(player):
     player.health = 0
 
     # Very dark but I love this idea of different death descriptions if you have certain items
-    # #if you have a blade:
-    #     time.sleep(1)
-    #     print("You pulled your balde out and held it solemly in your hands...")
-    #     time.sleep(2.5)
-    #     print("You got your knees ready to slice your stomach with the balde meant for others rather than your own...")
-    #     time.sleep(2.9)
-    #     print("You sliced your stomach open, blood rushing from your wound...")
-    #     time.sleep(2.8)
-    #     print("You fall to the ground and perish, but only with one regret...")
-    #     time.sleep(3)
-    #     print("You left the stove on.")
+    for item in player.current_location.inventory:
+        if item.Name == 'sword':
+            time.sleep(1)
+            print("You pulled your balde out and held it solemly in your hands...")
+            time.sleep(2.5)
+            print("You got your knees ready to slice your stomach")
+            time.sleep(1)
+            print("You pulled your balde out and held it solemly in your hands...")
+            time.sleep(2.5)
+            print("You got your knees ready to slice your stomach with the balde meant for others rather than your own...")
+            time.sleep(2.9)
+            print("You sliced your stomach open, blood rushing from your wound...")
+            time.sleep(2.8)
+            print("You fall to the ground and perish, but only with one regret...")
+            time.sleep(3)
+            print("You left the stove on.")
+   
 
     # else:
     #     print("You picked up a stone on the ground")    
@@ -80,7 +87,8 @@ def look(player, words):
 
     else:    
         #Location description
-        print(f"\n{player.current_location.description}")
+        print(f"\nYou are currrently in {player.current_location.name}")
+        print(f"{player.current_location.description}")
         
         #Items
         print("\nItems:")
@@ -88,7 +96,7 @@ def look(player, words):
             for item in player.current_location.inventory:
                 print(f"- {item.name}")
         else:
-            print("No items can be seen...")
+            print("No items can be seen...dingus")
         
         #Enemies
         
@@ -103,8 +111,8 @@ def look(player, words):
                 i.toString()
         
 def go(player, words):
-    second_words = ["in", "to", "up", "down"]
-    if words[1] in second_words and words[2] == "the":
+    particles = ["in", "to", "up", "down"]
+    if words[1] in particles and words[2] == "the":
         direction = words[3]
     else:
         direction = words[1]

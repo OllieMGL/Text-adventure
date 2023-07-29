@@ -48,7 +48,10 @@ def handleUserInput(user_input):
 
 
 print("Welcome to TBAG...")
+print(player.current_location.name)
 print(player.current_location.description)
+
+
 
 while player.health > 0:
     handleUserInput(input(">>> "))

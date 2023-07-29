@@ -6,13 +6,14 @@ class Location:
     #enemies - list
     #can_attack - bool
     
-    def __init__(self, description, inventory=[], enemies=[], npcs=[]):
+    def __init__(self, name, description, inventory=[], enemies=[], npcs=[], can_attack=False):
 
+        self.name = name
         self.description = description
         self.inventory = inventory
         self.enemies = enemies
         self.npc = npcs
-        self.can_attack = False
+        self.can_attack = can_attack
     
     #Set the directions attribute of the object
     def setDirections(self, directions: 'dict'):
