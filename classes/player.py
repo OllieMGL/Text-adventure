@@ -48,7 +48,6 @@ class Player:
         self.health = self.health - damage
 
 
-
     def helpFunction(self):
         list_verbs = [
                       "Attack - to damage any enemy the player may come across",

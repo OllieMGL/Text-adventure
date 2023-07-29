@@ -1,8 +1,8 @@
 descriptions = {
-    "hut" : {"name": "Hut", "description":"You are in a hut"},
+    "hut" : {"name": "Hut", "description":"four brown walls surround you"},
     
     
-    "riften_swamp": {"name": "Swampy Swamp", "description":"you are in riften swamp"},
+    "riften_swamp" : {"name": "Swampy Swamp", "description":"bubbly bog surrounds you"},
     
     
     "riften": {"name": "Riften", "description":"A bustling town."},
@@ -11,7 +11,7 @@ descriptions = {
     "secret_cave": {"name": "Shh Secret Cave", "description":"Dark and spooky cave"},
 
 
-    "oasis": {"name": "Blur", "description":"Big area with plants"},
+    "oasis": {"name": "oasis", "description":"Big area with plants"},
 
 
     "church": {"name": "Church", "description":"Holy place with lots of water "},

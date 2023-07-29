@@ -23,18 +23,18 @@ def init_locations():
         )
     riften = Location(
         name = descriptions["riften"]["name"],
-        description = descriptions["riften"],
+        description = descriptions["riften"]["description"],
         inventory   = inventory["riften"]
         )
 
     riften_swamp = Location(
         name = descriptions["riften_swamp"]["name"],
-        description = descriptions["riften_swamp"]
+        description = descriptions["riften_swamp"]["description"]
         )
 
     secret_cave = Location(
         name = descriptions["secret_cave"]["name"],
-        description = descriptions["secret_cave"],
+        description = descriptions["secret_cave"]["description"],
         inventory   = inventory["cave"],
         enemies=[
             Enemy("Draugr", 20, 8, "Draugr Head"),
@@ -44,7 +44,7 @@ def init_locations():
 
     oasis = Location(
         name = descriptions["oasis"]["name"],
-        description = descriptions["oasis"],
+        description = descriptions["oasis"]["description"],
         inventory   =  inventory["oasis"],
         enemies     = [
             Enemy("Troll", 50, 12, "Troll Fat")
@@ -53,20 +53,20 @@ def init_locations():
 
     church = Location(
         name = descriptions["church"]["name"],
-        description = descriptions["church"],
+        description = descriptions["church"]["description"],
         inventory   = inventory["church"],
         npcs        = [Npc("Priest", 10, None, 5, 6)]
         )
 
     shop = Location(
         name = descriptions["shop"]["name"],
-        description = descriptions["shop"],
+        description = descriptions["shop"]["description"],
         inventory   = inventory["shop"]
         )
 
     church_vault = Location(
         name = descriptions["church_vault"]["name"],
-        description = descriptions["church_vault"],
+        description = descriptions["church_vault"]["description"],
         inventory   = inventory["church_vault"],
         enemies     = [
             Enemy("draugr", 20, 8, "draugr teeth")

@@ -52,7 +52,7 @@ def attack(player, words):
             target = enemy
             break     
     
-    damage = 2
+    damage = 5
     
     if len(words) > 3 and words[2] == "with":
         found_weapon = False
@@ -78,8 +78,29 @@ def attack(player, words):
         print("You flung the air with style and destroyed the air particles.")
     
 def heal(player, words):
-    print("doin a heal")
-    
+    found_potion = ''
+    if len(words) > 3 and words[1] == 'with':
+        found_potion = False
+
+        for item in player.inventory:
+            if isinstance(item, Item.Potion) and item.name.lower() == (" ".join(words[2:]).lower()):
+
+                player.health = player.health + item.amount
+                print(f'You used the {item.name}, you gained {item.amount} health')
+                found_potion = True
+                player.inventory.remove(item)
+                print(f'{item.name} broke after usage')
+                break
+            
+    if found_potion == False:
+        print(f'{(" ".join(words[2:]).lower())} is not in your inventory')
+
+    if len(words) < 3:
+        print('heal with what?')                 
+
+
+
+
 def look(player, words):
 
     if len(words) > 2 and words[1] == "at":
@@ -87,7 +108,7 @@ def look(player, words):
 
     else:    
         #Location description
-        print(f"\nYou are currrently in {player.current_location.name}")
+        print(f"\nYou are currrently in location {player.current_location.name}")
         print(f"{player.current_location.description}")
         
         #Items

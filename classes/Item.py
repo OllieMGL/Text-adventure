@@ -26,7 +26,8 @@ class Potion(Item):
 
     def lookAt(self):
          super().lookAt()
-         print(f"~ Type - {self.type}")    
+         print(f"~ Type - {self.type}")
+         print(f"~ Gain life - {self.amount}")     
     
     def use(self):
         print("restore health or something")
