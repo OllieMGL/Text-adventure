@@ -17,28 +17,20 @@ def grab(player, words):
 def die(player):
     player.health = 0
 
-    # Very dark but I love this idea of different death descriptions if you have certain items
-    for item in player.current_location.inventory:
-        if item.Name == 'sword':
-            time.sleep(1)
+    for item in player.inventory:
+        if isinstance(item, Item.Weapon) and item.name.lower() == 'sword':
+            time.sleep(1.5)
             print("You pulled your balde out and held it solemly in your hands...")
-            time.sleep(2.5)
-            print("You got your knees ready to slice your stomach")
-            time.sleep(1)
-            print("You pulled your balde out and held it solemly in your hands...")
-            time.sleep(2.5)
-            print("You got your knees ready to slice your stomach with the balde meant for others rather than your own...")
-            time.sleep(2.9)
+            time.sleep(2)
+            print("You got your knees ready to slice your stomach...")
+            time.sleep(3)
             print("You sliced your stomach open, blood rushing from your wound...")
-            time.sleep(2.8)
+            time.sleep(2)
             print("You fall to the ground and perish, but only with one regret...")
             time.sleep(3)
             print("You left the stove on.")
-   
+            break
 
-    # else:
-    #     print("You picked up a stone on the ground")    
-        
         
 def attack(player, words):
     if len(words) < 2:
@@ -91,7 +83,7 @@ def heal(player, words):
                 player.inventory.remove(item)
                 print(f'{item.name} broke after usage')
                 break
-            
+         
     if found_potion == False:
         print(f'{(" ".join(words[2:]).lower())} is not in your inventory')
 
