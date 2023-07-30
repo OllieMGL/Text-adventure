@@ -9,6 +9,7 @@ class Player:
         self.health = health
         self.inventory = inventory
         self.current_location = location
+        self.starting_location = location
         
         
     def addItemToInventory(self, item):
@@ -70,9 +71,11 @@ class Player:
         for i in list_verbs:
             print(f"~~ {i}")
             
-        print("//////////////////////////////////////////////////////////////////////////////")    
-            
-            
-        
-        
- 
+        print("//////////////////////////////////////////////////////////////////////////////")
+
+
+
+    def reset(self):
+        self.health = 100
+        self.inventory = []
+        self.current_location = self.starting_location

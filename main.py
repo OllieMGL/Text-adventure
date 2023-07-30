@@ -8,10 +8,10 @@ from data.locations import init_locations
 
 CAN_ATTACK_ACTIONS = ["attack", "grab", "drop", "heal"]
 
-starting_loc = init_locations() 
+locations = init_locations() 
 
 #init player
-player = Player(100, [], starting_loc )
+player = Player(100, [], locations[0])
 
  
 def handleUserInput(user_input):
@@ -48,18 +48,24 @@ def handleUserInput(user_input):
     if verb in CAN_ATTACK_ACTIONS:
         player.current_location.setCanAttack(True)
 
+def play(player):
+    print("Welcome to TBAG...")
+    print(player.current_location.description)
 
-print("Welcome to TBAG...")
-print(player.current_location.description)
+    while player.health > 0:
+        handleUserInput(input(">>> "))
+        if player.current_location.can_attack == True:
+            player.current_location.enemiesAttack(player)
+
+    time.sleep(3)
+    print("You died.dumy")
+    replay = input('would you like to replay?')
+    if replay == 'yes':
+        player.reset()
+        for location in locations:
+            location.reset()
+
+        play(player)
 
 
-
-while player.health > 0:
-    handleUserInput(input(">>> "))
-    if player.current_location.can_attack == True:
-        player.current_location.enemiesAttack(player)
-        
-
-
-time.sleep(3)
-print("You died.dumy")
+play(player)

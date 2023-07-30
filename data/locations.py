@@ -17,8 +17,7 @@ def init_locations():
         inventory   = inventory["hut"], 
         enemies     =[
             Enemy("Draugr", 20, 8, Item.Item("Draugr Claws", 35, 1)),
-            Enemy("Skeever", 5, 2, Item.Item("Tail", 10, 1)),
-            Enemy("Draugr", 30, 8, Item.Item("Draugr head", 40, 1))
+            Enemy("Skeever", 5, 2, Item.Item("Tail", 10, 1))
             ]
         )
     riften = Location(
@@ -76,45 +75,44 @@ def init_locations():
 
 #Set paths that can be taken from each location 
 
-    hut.setDirections({
+    hut.setInitialDirections({
         "outside": riften_swamp
         })
 
-    riften_swamp.setDirections({
+    riften_swamp.setInitialDirections({
         "inside": hut,
         "riften": riften,
         "cave": secret_cave
         })
 
-    riften.setDirections({
+    riften.setInitialDirections({
         "swamp": riften_swamp,
         "church": church,
         "shop": shop
         })
 
-    secret_cave.setDirections({
+    secret_cave.setInitialDirections({
         "outside": riften_swamp,
         "inside": oasis
         })
 
-    oasis.setDirections({
+    oasis.setInitialDirections({
         "outside": secret_cave,
         "up": church
         })
 
-    church.setDirections({
+    church.setInitialDirections({
         "down": oasis,
         "outside": riften,
         "inside": church_vault
          })
 
-    shop.setDirections({
+    shop.setInitialDirections({
         "outside": riften
         })
 
-    church_vault.setDirections({
+    church_vault.setInitialDirections({
         "outside" : church
         })
 
-    starting_loc = hut
-    return starting_loc 
+    return  [hut, riften_swamp, riften, secret_cave, oasis, church, shop, church_vault]

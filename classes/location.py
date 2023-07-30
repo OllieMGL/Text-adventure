@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 class Location:
     #ATTRIBUTES
     #description - Str
@@ -14,9 +16,24 @@ class Location:
         self.enemies = enemies
         self.npc = npcs
         self.can_attack = can_attack
+
+        self.resetConfig = {
+            'inventory': deepcopy(inventory),
+            'enemies': deepcopy(enemies),
+            'npcs': deepcopy(npcs),
+            'can_attack': can_attack
+        }
     
+    # Create deepcopies when saving initial config and when resetting game so that references to changed objects aren't used
+    def reset(self):
+        self.inventory = deepcopy(self.resetConfig['inventory'])
+        self.enemies = deepcopy(self.resetConfig['enemies'])
+        self.npcs = deepcopy(self.resetConfig['npcs'])
+        self.can_attack = self.resetConfig['can_attack']
+
+
     #Set the directions attribute of the object
-    def setDirections(self, directions: 'dict'):
+    def setInitialDirections(self, directions: 'dict'):
         self.directions = directions
 
     def getInventoryLower(self):
