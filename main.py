@@ -39,6 +39,8 @@ def handleUserInput(user_input):
         print(f"Player health is {player.health}")
     elif verb == "help":
         input_handler.helpList(player)
+    elif verb == "quit":
+        input_handler.quit()    
     else:
         print("I did not understand that")
 

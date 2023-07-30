@@ -1,5 +1,6 @@
 import classes.Item as Item
 import time
+import sys
 
 
 
@@ -76,9 +77,8 @@ def heal(player, words):
 
         for item in player.inventory:
             if isinstance(item, Item.Potion) and item.name.lower() == (" ".join(words[2:]).lower()):
+                player.gainhealth(item)
 
-                player.health = player.health + item.amount
-                print(f'You used the {item.name}, you gained {item.amount} health')
                 found_potion = True
                 player.inventory.remove(item)
                 print(f'{item.name} broke after usage')
@@ -143,3 +143,11 @@ def getDirections(player):
     
 def helpList(player):
     player.helpFunction()
+
+def quit():
+    user_input = input("Are you sure you would like to quit?(yes/no): ")
+    if user_input == 'yes':
+        print('Thank you for playing')
+        sys.exit()
+    else:
+        print("Why did you say quit then dummo")    

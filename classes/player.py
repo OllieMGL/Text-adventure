@@ -47,6 +47,10 @@ class Player:
     def takeDamage(self, damage: 'int'):
         self.health = self.health - damage
 
+    def gainhealth(self, item):
+        self.health = self.health + item.amount
+        print(f'You used the {item.name}, you gained {item.amount} health')    
+
 
     def helpFunction(self):
         list_verbs = [
