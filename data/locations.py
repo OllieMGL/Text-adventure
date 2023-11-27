@@ -36,8 +36,8 @@ def init_locations():
         description = descriptions["secret_cave"]["description"],
         inventory   = inventory["cave"],
         enemies=[
-            Enemy("Draugr", 20, 8, "Draugr Head"),
-            Enemy("Skeever", 5, 2, "Skeever Tail")
+            Enemy("Draugr", 20, 8, Item.Item("Draugr Head", 40, 1 )),
+            Enemy("Skeever", 5, 2, Item.Item("Skeever Tail", 15, 1))
             ]
         )
 
@@ -46,7 +46,7 @@ def init_locations():
         description = descriptions["oasis"]["description"],
         inventory   =  inventory["oasis"],
         enemies     = [
-            Enemy("Troll", 50, 12, "Troll Fat")
+            Enemy("Troll", 50, 12, Item.Item("Troll Fat", 100, 1))
             ]
         )
 
@@ -68,7 +68,8 @@ def init_locations():
         description = descriptions["church_vault"]["description"],
         inventory   = inventory["church_vault"],
         enemies     = [
-            Enemy("draugr", 20, 8, "draugr teeth")
+            Enemy("draugr", 20, 8, Item.Item("draugr teeth", 25, 1)),
+            Enemy("BigBoss", 50, 13, Item.Item("Big Boss Head", 1000000, 1))
             ]
         )
 
@@ -98,11 +99,11 @@ def init_locations():
 
     oasis.setInitialDirections({
         "outside": secret_cave,
-        "up": church
+        "ladder": church
         })
 
     church.setInitialDirections({
-        "down": oasis,
+        "ladder": oasis,
         "outside": riften,
         "inside": church_vault
          })

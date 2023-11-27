@@ -8,10 +8,12 @@ from data.locations import init_locations
 
 CAN_ATTACK_ACTIONS = ["attack", "grab", "drop", "heal"]
 
-locations = init_locations() 
+locations = init_locations()
 
 #init player
+# player = Player(100, [], locations[0])
 player = Player(100, [], locations[0])
+
 
  
 def handleUserInput(user_input):
@@ -48,17 +50,40 @@ def handleUserInput(user_input):
     if verb in CAN_ATTACK_ACTIONS:
         player.current_location.setCanAttack(True)
 
+def enemies_exist():
+    total_enemies = 0
+    for location in locations:
+        total_enemies = total_enemies + len(location.enemies)
+    if total_enemies > 0:
+        print(f"{total_enemies} enemies remaining...")
+        return True
+    return False
+
+
 def play(player):
     print("Welcome to TBAG...")
     print(player.current_location.description)
+    time.sleep(2)
+    print("On the floor you see a bleached parchment with large letters enscribed.")
+    time.sleep(2)
+    print("It reads, 'vanquish every foe to claim victory.'")
+    time.sleep(2)
+    print("You drop the paper and realize your goal.")
+
 
     while player.health > 0:
         handleUserInput(input(">>> "))
         if player.current_location.can_attack == True:
             player.current_location.enemiesAttack(player)
+        
+        # check win con
+        if not enemies_exist():
+            print("You win!")
+            break
 
     time.sleep(3)
-    print("You died.dumy")
+    if player.health < 1:
+        print("You died.dumy")
     replay = input('would you like to replay?')
     if replay == 'yes':
         player.reset()

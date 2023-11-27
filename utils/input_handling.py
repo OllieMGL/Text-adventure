@@ -43,7 +43,7 @@ def attack(player, words):
     for enemy in player.current_location.enemies:
         if enemy.name.lower() == words[1].lower():
             target = enemy
-            break     
+            break
     
     damage = 5
     
@@ -101,9 +101,11 @@ def look(player, words):
     else:    
         #Location description
         print(f"\nYou are currrently in location {player.current_location.name}")
+        time.sleep(2)
         print(f"{player.current_location.description}")
         
         #Items
+        time.sleep(2)
         print("\nItems:")
         if len(player.current_location.inventory) > 0:
             for item in player.current_location.inventory:
@@ -125,8 +127,11 @@ def look(player, words):
         
 def go(player, words):
     particles = ["in", "to", "up", "down"]
-    if words[1] in particles and words[2] == "the":
-        direction = words[3]
+    if words[1] in particles and len(words)>2:
+        if words[2] == "the":
+            direction = words[3]
+        else:
+            direction = words[2]
     else:
         direction = words[1]
     if direction in player.current_location.directions.keys():

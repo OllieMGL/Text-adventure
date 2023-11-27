@@ -1,12 +1,15 @@
+from classes.Item import Item
+
 class Enemy:
     '''
     ATTRIBUTES
     name -string
     health - int
     power - int
+    inventory - [Item.Item]
     '''
     
-    def __init__ (self, name, health, power, inventory):
+    def __init__ (self, name: str, health: int, power: int, inventory: [Item]):
         self.name = name
         self.health = health
         self.power = power
